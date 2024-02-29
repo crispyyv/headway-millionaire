@@ -1,4 +1,3 @@
-import { Answer } from "@/shared/types";
 import clsx from "clsx";
 import { KeyboardEvent, PropsWithChildren } from "react";
 
