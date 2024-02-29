@@ -6,13 +6,6 @@
   justify-content: center;
   position: relative;
 
-  &.lg:focus-within {
-    & > .curveContainer:not([data-disabled]):not([data-correct]) {
-      @mixin hover-active-state;
-    }
-    outline: none;
-  }
-
   .optionItem {
     z-index: 2;
   }
@@ -80,6 +73,10 @@
     .optionItem {
       color: var(--black-40);
     }
+  }
+
+  &:focus-within {
+    @mixin hover-active-state;
   }
 
   @media (hover: hover) and (pointer: fine) {
