@@ -5,6 +5,7 @@
   background-color: var(--orange-100);
   border-radius: var(--radius);
   color: var(--white-100);
+  cursor: pointer;
 
   @mixin text-button;
 

@@ -7,6 +7,7 @@
   justify-content: space-between;
   padding: 1.5rem 0;
   width: 100vw;
+
   @media (--m-viewport) {
     justify-content: space-between;
     padding: 8.3125rem 5rem;
@@ -31,10 +32,18 @@
     flex-direction: column;
     gap: 0.5rem;
 
+    @media (--s-min-viewport) and (--m-max-viewport) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 0;
+    }
+
     @media (--m-viewport) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem 0;
+      max-width: 52.75rem;
     }
 
     .answerItem {

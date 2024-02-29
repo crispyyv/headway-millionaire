@@ -26,6 +26,14 @@
   @media (--xl-viewport) {
     font-size: 24px;
   }
+
+  @media (--2xl-viewport) {
+    font-size: 32px;
+  }
+}
+
+*:focus:not(.focus-visible) {
+  outline: none;
 }
 
 * {

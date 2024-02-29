@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { KeyboardEvent, useEffect, useState } from "react";
 
@@ -10,13 +11,19 @@ import postpone from "@/shared/lib/postpone";
 
 import css from "./game.module.css";
 
-function getAttribute(answer: Answer, id: number | null) {
+function getDataCorrect(answer: Answer, id: number | null) {
   if (!id) return undefined;
 
   if (id === answer.id) {
     return answer.correct;
   }
   return answer.correct || undefined;
+}
+
+function getDataDisabled(answer: Answer, id: number | null) {
+  if (!id) return undefined;
+
+  return id !== answer.id;
 }
 
 export default function GamePage() {
@@ -48,31 +55,19 @@ export default function GamePage() {
     handleVerifyAnswer(answer);
   };
 
-  const handleKeyDown =
-    (answer: Answer) => (event: KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === "Enter") {
-        handleVerifyAnswer(answer);
-      }
-    };
-
   return (
     <div className={css.gameContainer}>
       <h1 className={css.questionTitle}>{question.question}</h1>
 
       <div className={css.answersContainer}>
         {question.answers.map((answer) => (
-          <div
-            key={answer.id}
-            role="button"
-            tabIndex={0}
-            className={css.answerItem}
-            onClick={handleOnClick(answer)}
-            onKeyDown={handleKeyDown(answer)}
-          >
+          <div key={answer.id} className={css.answerItem}>
             <Option
               size="lg"
               data-active={selectedAnswerId === answer.id}
-              data-correct={getAttribute(answer, selectedAnswerId)}
+              data-correct={getDataCorrect(answer, selectedAnswerId)}
+              data-disabled={getDataDisabled(answer, selectedAnswerId)}
+              onClick={handleOnClick(answer)}
             >
               {answer.answer}
             </Option>

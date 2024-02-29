@@ -6,6 +6,13 @@
   justify-content: center;
   position: relative;
 
+  &.lg:focus-within {
+    & > .curveContainer:not([data-disabled]):not([data-correct]) {
+      @mixin hover-active-state;
+    }
+    outline: none;
+  }
+
   .optionItem {
     z-index: 2;
   }
@@ -56,8 +63,27 @@
     }
   }
 
+  &[data-disabled="true"] {
+    pointer-events: none;
+    cursor: not-allowed;
+    .curve > path {
+      stroke: var(--black-40);
+    }
+
+    & > .curveContainer {
+      &::before,
+      &::after {
+        background: var(--black-40);
+      }
+    }
+
+    .optionItem {
+      color: var(--black-40);
+    }
+  }
+
   @media (hover: hover) and (pointer: fine) {
-    &:not([data-passed="true"]):not([data-correct]):hover {
+    &:not([data-disabled="true"]):not([data-correct]):hover {
       @mixin hover-active-state;
     }
   }
@@ -102,24 +128,7 @@
     }
   }
 
-  &[data-passed="true"] {
-    .curve > path {
-      stroke: var(--black-40);
-    }
-
-    & > .curveContainer {
-      &::before,
-      &::after {
-        background: var(--black-40);
-      }
-    }
-
-    .optionItem {
-      color: var(--black-40);
-    }
-  }
-
-  &:not(data-passed="true"):active {
+  &:not([data-disabled="true"]):active {
     .curve > path {
       stroke: var(--orange-100);
       fill: var(--orange-5);
@@ -139,33 +148,29 @@
 
     & > .curveContainer {
       height: 2.5rem;
-      width: calc(100% - (4.3125rem * 2));
+      width: 15rem;
 
       & > .curve {
         width: 15rem;
-        & > path {
-          width: 100%;
-        }
+        max-width: 15rem;
+      }
+
+      &::before,
+      &::after {
+        width: calc(100vw - 15rem);
       }
     }
 
     @media (--s-viewport) and (--m-max-viewport) {
-      height: 3.5rem;
+      height: 3rem;
       & > .curveContainer {
-        width: calc(100% - (8.625rem * 2));
         .curve {
-          height: 3.5rem;
-          width: 100%;
-        }
-
-        &::before,
-        &::after {
-          width: 8.625rem;
+          height: 3rem;
         }
       }
     }
 
-    & .curveContainer::before {
+    @media & .curveContainer::before {
       left: 0;
     }
 
@@ -179,9 +184,11 @@
     max-height: 4.5rem;
     height: 100%;
 
+    cursor: pointer;
+
     & > .curveContainer {
       height: 100%;
-      width: calc(100% - 2.125rem);
+      width: 18rem;
 
       & > .curve {
         width: 100%;
@@ -189,17 +196,18 @@
 
       &::before,
       &::after {
-        width: 1.0625rem;
-        height: 1px;
+        width: calc((100vw - 18rem) / 2);
       }
     }
+
     @media (--s-viewport) and (--m-max-viewport) {
-      height: 4.5rem;
+      height: 4rem;
+      width: 24.3125rem;
 
       & > .curveContainer {
         width: calc(100% - 8.5rem);
         .curve {
-          height: 4.5rem;
+          height: 4rem;
           width: 100%;
         }
 
@@ -215,8 +223,15 @@
       max-height: 5.5rem;
       height: 100%;
       & .curveContainer {
+        width: calc(100% - 2.125rem);
+
         & > .curve {
           width: 100%;
+        }
+
+        &::before,
+        &::after {
+          width: 1.0625rem;
         }
       }
     }

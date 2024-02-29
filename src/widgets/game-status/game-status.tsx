@@ -41,7 +41,7 @@ export default function GameStatus() {
               <Option
                 size="sm"
                 data-active={gain === potentialGain}
-                data-passed={gain < potentialGain}
+                data-disabled={gain < potentialGain}
               >
                 {formatNumber(gain)}
               </Option>
