@@ -1,8 +1,7 @@
 "use client";
 
-import clsx from "clsx";
 import { useRouter } from "next/navigation";
-import { KeyboardEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useGameContext } from "@/entities/game";
 import { Answer } from "@/shared/types";
