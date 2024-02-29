@@ -1,0 +1,248 @@
+@import url("../../mixins.css");
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .optionItem {
+    z-index: 2;
+  }
+
+  & .curveContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 4.3125rem;
+      height: 1px;
+      background: var(--black-40);
+      top: 50%;
+
+      transition: background 0.3s linear;
+    }
+
+    &::before {
+      left: 0;
+      transform: translate(-100%, -50%);
+    }
+
+    &::after {
+      right: 0;
+      transform: translate(100%, -50%);
+    }
+  }
+
+  & .curve {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    > path {
+      transition:
+        stroke 0.3s linear,
+        fill 0.3s linear;
+
+      fill: var(--white-100);
+      stroke: var(--black-40);
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:not([data-passed="true"]):not([data-correct]):hover {
+      @mixin hover-active-state;
+    }
+  }
+
+  &[data-active="true"]:not([data-correct]) {
+    @mixin hover-active-state;
+  }
+
+  &[data-correct="true"] {
+    .curve > path {
+      stroke: var(--green-100);
+      fill: var(--green-5);
+    }
+
+    & > .curveContainer {
+      &::before,
+      &::after {
+        background: var(--green-100);
+      }
+    }
+
+    .optionItem {
+      color: var(--green-100);
+    }
+  }
+
+  &[data-correct="false"] {
+    .curve > path {
+      stroke: var(--red-100);
+      fill: var(--red-5);
+    }
+
+    & > .curveContainer {
+      &::before,
+      &::after {
+        background: var(--red-100);
+      }
+    }
+
+    .optionItem {
+      color: var(--red-100);
+    }
+  }
+
+  &[data-passed="true"] {
+    .curve > path {
+      stroke: var(--black-40);
+    }
+
+    & > .curveContainer {
+      &::before,
+      &::after {
+        background: var(--black-40);
+      }
+    }
+
+    .optionItem {
+      color: var(--black-40);
+    }
+  }
+
+  &:not(data-passed="true"):active {
+    .curve > path {
+      stroke: var(--orange-100);
+      fill: var(--orange-5);
+    }
+
+    & > .curveContainer {
+      &::before,
+      &::after {
+        background: var(--orange-100);
+      }
+    }
+  }
+
+  &.sm {
+    width: 100%;
+    height: 2.5rem;
+
+    & > .curveContainer {
+      height: 2.5rem;
+      width: calc(100% - (4.3125rem * 2));
+
+      & > .curve {
+        width: 15rem;
+        & > path {
+          width: 100%;
+        }
+      }
+    }
+
+    @media (--s-viewport) and (--m-max-viewport) {
+      height: 3.5rem;
+      & > .curveContainer {
+        width: calc(100% - (8.625rem * 2));
+        .curve {
+          height: 3.5rem;
+          width: 100%;
+        }
+
+        &::before,
+        &::after {
+          width: 8.625rem;
+        }
+      }
+    }
+
+    & .curveContainer::before {
+      left: 0;
+    }
+
+    & .curveContainer::after {
+      right: 0;
+    }
+  }
+
+  &.lg {
+    min-height: 3.5rem;
+    max-height: 4.5rem;
+    height: 100%;
+
+    & > .curveContainer {
+      height: 100%;
+      width: calc(100% - 2.125rem);
+
+      & > .curve {
+        width: 100%;
+      }
+
+      &::before,
+      &::after {
+        width: 1.0625rem;
+        height: 1px;
+      }
+    }
+    @media (--s-viewport) and (--m-max-viewport) {
+      height: 4.5rem;
+
+      & > .curveContainer {
+        width: calc(100% - 8.5rem);
+        .curve {
+          height: 4.5rem;
+          width: 100%;
+        }
+
+        &::before,
+        &::after {
+          width: 4.25rem;
+        }
+      }
+    }
+
+    @media (--m-viewport) {
+      min-height: 4.5rem;
+      max-height: 5.5rem;
+      height: 100%;
+      & .curveContainer {
+        & > .curve {
+          width: 100%;
+        }
+      }
+    }
+
+    .optionItem {
+      word-break: break-word;
+      text-align: center;
+      overflow: hidden;
+      @mixin text-option;
+    }
+  }
+}
+
+@define-mixin hover-active-state {
+  .curve > path {
+    stroke: var(--orange-120);
+  }
+
+  & > .curveContainer {
+    &::before,
+    &::after {
+      background: var(--orange-120);
+    }
+  }
+
+  .optionItem {
+    color: var(--orange-100);
+  }
+}

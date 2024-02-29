@@ -1,0 +1,30 @@
+@import url("../../mixins.css");
+
+.button {
+  border: none;
+  background-color: var(--orange-100);
+  border-radius: var(--radius);
+  color: var(--white-100);
+
+  @mixin text-button;
+
+  transition: background-color 0.3s ease-in-out;
+  min-width: 18rem;
+  height: 3rem;
+  width: 100%;
+
+  @media (--m-viewport) {
+    min-width: 18.5rem;
+    height: 4rem;
+  }
+
+  &:active {
+    background-color: var(--orange-120);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--orange-80);
+    }
+  }
+}

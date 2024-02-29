@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "question": "What's the first step to wealth?",
+    "answers": [
+      { "answer": "Manage", "id": 5, "correct": false },
+      { "answer": "Invest", "id": 2, "correct": true },
+      { "answer": "Budget", "id": 3, "correct": false },
+      { "answer": "Earn", "id": 4, "correct": false },
+      { "answer": "Save", "id": 1, "correct": false }
+    ],
+    "sum": 500
+  },
+  {
+    "id": 2,
+    "question": "What's the best investment option?",
+    "answers": [
+      { "answer": "Gold", "id": 9, "correct": false },
+      { "answer": "Savings Account", "id": 11, "correct": false },
+      { "answer": "Crypto", "id": 10, "correct": false },
+      { "answer": "Real Estate", "id": 8, "correct": false },
+      { "answer": "Bonds", "id": 7, "correct": false },
+      { "answer": "Stocks", "id": 6, "correct": true }
+    ],
+    "sum": 1000
+  },
+  {
+    "id": 3,
+    "question": "What does ROI stand for?",
+    "answers": [
+      { "answer": "Return on Investment", "id": 12, "correct": true },
+      { "answer": "Risk of Investment", "id": 13, "correct": false },
+      { "answer": "Revenue of Investment", "id": 15, "correct": false },
+      { "answer": "Rate of Interest", "id": 14, "correct": false }
+    ],
+    "sum": 2000
+  },
+  {
+    "id": 4,
+    "question": "Define compound interest.",
+    "answers": [
+      { "answer": "Interest", "id": 16, "correct": true },
+      { "answer": "Profit", "id": 17, "correct": false },
+      { "answer": "Growth", "id": 15, "correct": false },
+      { "answer": "Accumulation", "id": 18, "correct": false }
+    ],
+    "sum": 4000
+  },
+  {
+    "id": 5,
+    "question": "What is a diversified portfolio?",
+    "answers": [
+      { "answer": "Options", "id": 21, "correct": false },
+      { "answer": "Spread", "id": 20, "correct": true },
+      { "answer": "Mix", "id": 19, "correct": false },
+      { "answer": "Variety", "id": 22, "correct": false }
+    ],
+    "sum": 8000
+  },
+  {
+    "id": 6,
+    "question": "What does ETF stand for?",
+    "answers": [
+      { "answer": "Easy Trading Fund", "id": 26, "correct": false },
+      { "answer": "Exchange-Traded Fund", "id": 24, "correct": true },
+      { "answer": "Electronic Transfer of Funds", "id": 25, "correct": false }
+    ],
+    "sum": 16000
+  },
+  {
+    "id": 7,
+    "question": "What is the golden rule of investing?",
+    "answers": [
+      { "answer": "Diversify investments", "id": 30, "correct": false },
+      { "answer": "Timing is everything", "id": 31, "correct": false },
+      { "answer": "Invest cautiously", "id": 29, "correct": false },
+      { "answer": "Buy low, sell high", "id": 27, "correct": true },
+      { "answer": "Buy high, sell low", "id": 28, "correct": false }
+    ],
+    "sum": 32000
+  },
+  {
+    "id": 8,
+    "question": "Difference between stock and bond?",
+    "answers": [
+      { "answer": "Stock: Ownership; Bond: Debt", "id": 32, "correct": true },
+      { "answer": "Bond: Debt; Stock: Ownership", "id": 33, "correct": false }
+    ],
+    "sum": 64000
+  },
+  {
+    "id": 9,
+    "question": "Why is an emergency fund essential?",
+    "answers": [
+      { "answer": "Investment", "id": 36, "correct": false },
+      { "answer": "Stability", "id": 37, "correct": false },
+      { "answer": "Savings", "id": 35, "correct": false },
+      { "answer": "Security", "id": 34, "correct": true }
+    ],
+    "sum": 128000
+  },
+  {
+    "id": 10,
+    "question": "What is dollar-cost averaging?",
+    "answers": [
+      { "answer": "Periodic", "id": 40, "correct": false },
+      { "answer": "Steady", "id": 41, "correct": false },
+      { "answer": "Regular", "id": 38, "correct": true },
+      { "answer": "Consistent", "id": 39, "correct": false },
+      { "answer": "Systematic", "id": 42, "correct": false }
+    ],
+    "sum": 250000
+  },
+  {
+    "id": 11,
+    "question": "Importance of budgeting?",
+    "answers": [
+      { "answer": "Plan", "id": 44, "correct": false },
+      { "answer": "Control", "id": 43, "correct": true }
+    ],
+    "sum": 500000
+  },
+  {
+    "id": 12,
+    "question": "Role of a financial advisor?",
+    "answers": [
+      { "answer": "Advice", "id": 46, "correct": false },
+      { "answer": "Guidance", "id": 45, "correct": true }
+    ],
+    "sum": 1000000
+  }
+]

@@ -1,0 +1,48 @@
+@import url("../../shared/mixins.css");
+
+.gameContainer {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  width: 100vw;
+  @media (--m-viewport) {
+    justify-content: space-between;
+    padding: 8.3125rem 5rem;
+    width: auto;
+  }
+
+  .questionTitle {
+    @mixin text-question;
+    color: var(--black-100);
+    margin: auto 0;
+
+    text-align: center;
+
+    @media (--m-viewport) {
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  .answersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @media (--m-viewport) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 0;
+    }
+
+    .answerItem {
+    }
+  }
+
+  .blink {
+    transition: opacity 0.3s;
+    animation: blinker 1s linear;
+  }
+}

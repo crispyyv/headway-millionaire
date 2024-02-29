@@ -1,0 +1,58 @@
+@import url("./breakpoints.css");
+
+@define-mixin text-headline {
+  font-weight: 600;
+
+  @media (--m-max-viewport) {
+    font-size: 2rem;
+    line-height: 2.3125rem;
+  }
+
+  @media (--m-viewport) {
+    font-size: 3.5rem;
+    line-height: 4.0625rem;
+  }
+}
+
+@define-mixin text-button {
+  font-weight: 600;
+  text-align: center;
+
+  @media (--m-max-viewport) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  @media (--m-viewport) {
+    font-size: 1.25rem;
+    line-height: 1.4375rem;
+  }
+}
+
+@define-mixin text-question {
+  font-weight: 600;
+
+  @media (--m-max-viewport) {
+    font-size: 1.125rem;
+    line-height: 1.3125rem;
+  }
+
+  @media (--m-viewport) {
+    font-size: 2rem;
+    line-height: 2.3125rem;
+  }
+}
+
+@define-mixin text-option {
+  font-weight: 400;
+
+  @media (--m-max-viewport) {
+    font-size: 0.875rem;
+    line-height: 1rem;
+  }
+
+  @media (--m-viewport) {
+    font-size: 1.25rem;
+    line-height: 1.4375rem;
+  }
+}
